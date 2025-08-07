@@ -50,7 +50,8 @@ const refreshTokenRoutes = (app) => {
             return res.json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
 
 
-        } catch (err) {
+        } catch (error) {
+            console.log("Invalid Refresh Token",error);
             return res.status(403).json({ message: 'Invalid or expired refresh token' });
         }
     });
@@ -96,11 +97,11 @@ const verifyToken = (token) => {
         return decoded;
     } catch (error) {
         if (error.name === 'TokenExpiredError') {
-            logError = (`Token Expired: ${error.stack || error.message}`);
+            console.error(`Token Expired: ${error.stack || error.message}`);
             throw new ApiError(401, 'Token is Expired');
         }
         else {
-            Error = (`Token Invalid: ${error.stack || error.message}`);
+            console.error(`Token Invalid: ${error.stack || error.message}`);
             throw new ApiError(401, "Invalid Token");
 
         }
