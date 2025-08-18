@@ -4,7 +4,7 @@ const userService = require('../../service/userService');
 
 router.post('/',(req,res) =>
 {
-    console.log("Api Login Hit");
+    console.log("Login Api Login Hit");
     userService.login(req,res);
 });
 

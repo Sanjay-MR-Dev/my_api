@@ -114,7 +114,6 @@ module.exports = {
     generateAccessToken,
     refreshTokenRoutes,
     generateRefreshToken,
-    refreshTokens,
-    
+    refreshTokens,  
 };
 
